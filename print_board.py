@@ -4,7 +4,7 @@ BLACK = "\033[30m"
 WHITE = "\033[37m"
 RESET = "\033[0m"
 
-PIECES = {
+PIECE_ICONS = {
     'r': '♜',
     'n': '♞',
     'b': '♝',
@@ -24,7 +24,7 @@ def print_board(board: list[str]):
     for i, piece in enumerate(board):
         bg_color = BG_BLUE if i % 2 == 0 else BG_CYAN
         piece_color = WHITE if piece.isupper() else BLACK
-        piece_symbol = PIECES[piece.lower()]
+        piece_symbol = PIECE_ICONS[piece.lower()]
         print(f"{bg_color}{piece_color} {piece_symbol} {RESET}", end='')
     print()
 
