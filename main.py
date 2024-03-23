@@ -8,13 +8,16 @@ SEARCH_DEPTH = 6
 
 def print_header() -> None:
     print("Welcome to one-dimensional chess!")
-    print("This chess variant is similar to the one proposed by Dan Glimne in 1977")
-    print("You can find the rules to play in https://docpop.itch.io/1d-chess")
-    print("You'll be playing against BlueVector, an AI agent based on the legendary Deep Blue")
+    print("This chess variant is based on the one proposed by Dan Glimne in 1977")
+    print("You can find the rules at https://docpop.itch.io/1d-chess")
+    print("\nTo make a move, enter it in the format: <piece letter><target square>")
+    print("k: king, q: queen, r: rook, b: bishop, n: knight, p: pawn")
+    print("Note: Use uppercase letters for White pieces, lowercase for Black")
+    print("\nYou'll be playing against BlueVector, an AI agent based on the legendary Deep Blue")
     print("Are you ready for the challenge?")
 
 def get_color_choice() -> str:
-    player_choice = input("Choose white(w) or black(b):")
+    player_choice = input("\nChoose white(w) or black(b): ")
     while player_choice not in ("w", "b"):
         print("Error: Invalid choice")
         player_choice = input("Choose white(w) or black(b): ")
