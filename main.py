@@ -10,6 +10,13 @@ def is_game_finished(board: list[str]):
         is_finished = True
     return is_finished
 
+def execute_move(board: list[str], move: str) -> None:
+    piece = move[0]
+    next_position = int(move[1:])
+    position = board.index(piece)
+    board[position] = ' '
+    board[next_position] = piece
+
 def main() -> None:
     board = ['K', 'Q', 'R', 'B', 'N', 'P', ' ', ' ', ' ', ' ', 'p', 'n', 'b', 'r', 'q', 'k']
     game_finished = False
@@ -17,11 +24,9 @@ def main() -> None:
         print_board(board)
         move = input("Move: ")
         if valid_move(board, move):
-            piece = move[0]
-            next_position = int(move[1:])
-            position = board.index(piece)
-            board[position] = ' '
-            board[next_position] = piece
+            execute_move(board, move)
+        else:
+            print("Error: Invalid move")
         game_finished = is_game_finished(board)
 
 if __name__ == "__main__":
