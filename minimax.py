@@ -2,6 +2,7 @@ from typing import Optional
 from evaluation_function import evaluation_function
 from valid_moves import valid_move
 from utils import execute_move
+from utils import is_game_finished
 
 INFINITY = 999
 
@@ -21,25 +22,26 @@ def generate_possible_moves(board: list[str], to_move: str) -> set[str]:
     return possible_moves
 
 def minimax(board: list[str], depth: int, to_move: str) -> tuple[int, Optional[str]]:
-    if depth == 0:
+    if depth == 0 or is_game_finished(board):
         result = evaluation_function(board), None
-    best_move = None
-    if to_move == 'white':
-        max_eval = -INFINITY
-        for move in generate_possible_moves(board, to_move):
-            new_board = child(board, move)
-            evaluation, _ = minimax(new_board, depth - 1, 'black')
-            if evaluation > max_eval:
-                max_eval = evaluation
-                best_move = move
-        result = max_eval, best_move
     else:
-        min_eval = INFINITY
-        for move in generate_possible_moves(board, to_move):
-            new_board = child(board, move)
-            evaluation, _ = minimax(new_board, depth - 1, 'white')
-            if evaluation < min_eval:
-                min_eval = evaluation
-                best_move = move
-        result = min_eval, best_move
+        best_move = None
+        if to_move == 'white':
+            max_eval = -INFINITY
+            for move in generate_possible_moves(board, to_move):
+                new_board = child(board, move)
+                evaluation, _ = minimax(new_board, depth - 1, 'black')
+                if evaluation > max_eval:
+                    max_eval = evaluation
+                    best_move = move
+            result = max_eval, best_move
+        else:
+            min_eval = INFINITY
+            for move in generate_possible_moves(board, to_move):
+                new_board = child(board, move)
+                evaluation, _ = minimax(new_board, depth - 1, 'white')
+                if evaluation < min_eval:
+                    min_eval = evaluation
+                    best_move = move
+            result = min_eval, best_move
     return result
