@@ -11,7 +11,7 @@ def evaluation_function(board: list[str]) -> int:
     evaluation = 0
     for piece in board:
         if piece.isupper():
-            evaluation += PIECE_VALUE[piece]
+            evaluation += PIECE_VALUE[piece.lower()]
         else:
-            evaluation -= PIECE_VALUE[piece]
+            evaluation -= PIECE_VALUE[piece.lower()]
     return evaluation
