@@ -17,18 +17,23 @@ def get_color_choice() -> str:
     player_choice = input("Choose white(w) or black(b):")
     while player_choice not in ("w", "b"):
         print("Error: Invalid choice")
-        player_choice = input("Choose white(w) or black(b):")
+        player_choice = input("Choose white(w) or black(b): ")
     return player_choice
 
-def get_player_move(board: list[str]) -> str:
-    move = input("Move: ")
-    while not valid_move(board, move):
+def right_color_move(move: str, player_choice: str) -> bool:
+    is_right_color = ((player_choice == 'w' and move[0].isupper())
+                      or (player_choice == 'b' and move[0].islower()))
+    return is_right_color
+
+def get_player_move(board: list[str], player_choice: str) -> str:
+    move = input("Your move: ")
+    while not move or not valid_move(board, move) or not right_color_move(move, player_choice):
         print("Error: Invalid move")
         move = input("Your move: ")
     return move
 
 def player_as_white(board: list[str]) -> bool:
-    move = get_player_move(board)
+    move = get_player_move(board, 'w')
     execute_move(board, move)
     print_board(board)
     game_finished = is_game_finished(board)
@@ -47,7 +52,7 @@ def player_as_black(board: list[str]) -> bool:
     print_board(board)
     game_finished = is_game_finished(board)
     if not game_finished:
-        move = get_player_move(board)
+        move = get_player_move(board, 'b')
         execute_move(board, move)
         print_board(board)
         game_finished = is_game_finished(board)
