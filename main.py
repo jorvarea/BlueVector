@@ -4,7 +4,8 @@ from utils import is_game_finished
 from utils import execute_move
 from minimax import minimax
 
-SEARCH_DEPTH = 6
+SEARCH_DEPTH = 8
+INFINITY = 9999
 
 def print_header() -> None:
     print("Welcome to one-dimensional chess!")
@@ -41,7 +42,7 @@ def player_as_white(board: list[str]) -> bool:
     print_board(board)
     game_finished = is_game_finished(board)
     if not game_finished:
-        _, minimax_move = minimax(board, SEARCH_DEPTH, 'black')
+        _, minimax_move = minimax(board, SEARCH_DEPTH, -INFINITY, INFINITY, 'black')
         execute_move(board, minimax_move)
         print(f"BlueVector's move: {minimax_move}")
         print_board(board)
@@ -49,7 +50,7 @@ def player_as_white(board: list[str]) -> bool:
     return game_finished
 
 def player_as_black(board: list[str]) -> bool:
-    _, minimax_move = minimax(board, SEARCH_DEPTH, 'white')
+    _, minimax_move = minimax(board, SEARCH_DEPTH, -INFINITY, INFINITY, 'white')
     execute_move(board, minimax_move)
     print(f"BlueVector's move: {minimax_move}")
     print_board(board)
