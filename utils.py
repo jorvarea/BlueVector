@@ -1,3 +1,5 @@
+from typing import Optional
+
 def is_game_finished(board: list[str]):
     is_finished = False
     try:
@@ -7,9 +9,10 @@ def is_game_finished(board: list[str]):
         is_finished = True
     return is_finished
 
-def execute_move(board: list[str], move: str) -> None:
-    piece = move[0]
-    next_position = int(move[1:])
-    position = board.index(piece)
-    board[position] = ' '
-    board[next_position] = piece
+def execute_move(board: list[str], move: Optional[str]) -> None:
+    if move:
+        piece = move[0]
+        next_position = int(move[1:])
+        position = board.index(piece)
+        board[position] = ' '
+        board[next_position] = piece
