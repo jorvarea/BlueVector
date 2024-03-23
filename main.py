@@ -25,6 +25,5 @@ def main() -> None:
             print_board(board)
             game_finished = is_game_finished(board)
 
-
 if __name__ == "__main__":
     main()
