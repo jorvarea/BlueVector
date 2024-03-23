@@ -14,12 +14,14 @@ def valid_pawn_move(board: list[str], piece: str, next_position: int) -> bool:
             is_valid = (square_allowed(board, piece, next_position)
                         and (next_position == piece_position + 1
                              or (piece_position == INITIAL_WHITE_PAWN_POSITION
-                                 and next_position == INITIAL_WHITE_PAWN_POSITION + 2 and board[next_position] == ' ')))
+                                 and next_position == INITIAL_WHITE_PAWN_POSITION + 2
+                                 and board[next_position] == ' ')))
         else:
             is_valid = (square_allowed(board, piece, next_position)
                         and (next_position == piece_position - 1
                              or (piece_position == INITIAL_BLACK_PAWN_POSITION
-                                 and next_position == INITIAL_BLACK_PAWN_POSITION - 2 and board[next_position] == ' ')))
+                                 and next_position == INITIAL_BLACK_PAWN_POSITION - 2
+                                 and board[next_position] == ' ')))
     except ValueError:
         is_valid = False
     return is_valid
