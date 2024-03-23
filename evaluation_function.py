@@ -7,7 +7,7 @@ PIECE_VALUE = {
     'p': 1
 }
 
-def evaluating_function(board: list[str]) -> int:
+def evaluation_function(board: list[str]) -> int:
     evaluation = 0
     for piece in board:
         if piece.isupper():
