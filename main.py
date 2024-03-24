@@ -1,12 +1,10 @@
-from typing import Final
 from print_board import print_board
 from valid_moves import valid_move
 from utils import is_game_finished
 from utils import execute_move
 from minimax import minimax
-
-SEARCH_DEPTH: Final[int] = 8
-INFINITY: Final[int] = 9999
+from config import INFINITY
+from config import SEARCH_DEPTH
 
 def print_header() -> None:
     print("Welcome to one-dimensional chess!")

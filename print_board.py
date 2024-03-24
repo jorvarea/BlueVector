@@ -1,20 +1,4 @@
-from typing import Final
-
-BG_BLUE: Final[str] = "\033[44m"
-BG_CYAN: Final[str] = "\033[46m"
-BLACK: Final[str] = "\033[30m"
-WHITE: Final[str] = "\033[37m"
-RESET: Final[str] = "\033[0m"
-
-PIECE_ICONS: Final[dict[str, str]] = {
-    'r': '♜',
-    'n': '♞',
-    'b': '♝',
-    'q': '♛',
-    'k': '♚',
-    'p': '♟',
-    ' ': ' '
-}
+from config import BG_BLUE, BG_CYAN, WHITE, BLACK, RESET, PIECE_ICONS
 
 def print_header() -> None:
     for i in range(16):
