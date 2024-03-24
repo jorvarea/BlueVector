@@ -1,7 +1,6 @@
 from print_board import print_board
 from valid_moves import valid_move
-from utils import is_game_finished
-from utils import execute_move
+from utils import is_game_finished, execute_move
 from minimax import minimax
 from config import INFINITY
 from config import SEARCH_DEPTH

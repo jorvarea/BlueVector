@@ -9,7 +9,7 @@ def evaluation_function(board: list[str], depth: int) -> int:
             else:
                 evaluation -= PIECE_VALUE[piece.lower()]
     if 'K' not in board:
-        evaluation += depth
-    if 'k' not in board:
         evaluation -= depth
+    if 'k' not in board:
+        evaluation += depth
     return evaluation
