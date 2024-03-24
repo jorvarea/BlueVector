@@ -1,10 +1,10 @@
-from typing import Optional
+from typing import Optional, Final
 from evaluation_function import evaluation_function
 from valid_moves import valid_move
 from utils import execute_move
 from utils import is_game_finished
 
-INFINITY = 9999
+INFINITY: Final[int] = 9999
 
 def child(board: list[str], move: str) -> list[str]:
     new_board = board.copy()

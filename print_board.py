@@ -1,10 +1,12 @@
-BG_BLUE = "\033[44m"
-BG_CYAN = "\033[46m"
-BLACK = "\033[30m"
-WHITE = "\033[37m"
-RESET = "\033[0m"
+from typing import Final
 
-PIECE_ICONS = {
+BG_BLUE: Final[str] = "\033[44m"
+BG_CYAN: Final[str] = "\033[46m"
+BLACK: Final[str] = "\033[30m"
+WHITE: Final[str] = "\033[37m"
+RESET: Final[str] = "\033[0m"
+
+PIECE_ICONS: Final[dict[str, str]] = {
     'r': '♜',
     'n': '♞',
     'b': '♝',

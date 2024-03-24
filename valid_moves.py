@@ -1,5 +1,7 @@
-INITIAL_WHITE_PAWN_POSITION = 5
-INITIAL_BLACK_PAWN_POSITION = 10
+from typing import Final
+
+INITIAL_WHITE_PAWN_POSITION: Final[int] = 5
+INITIAL_BLACK_PAWN_POSITION: Final[int] = 10
 
 def square_allowed(board: list[str], piece: str, next_position: int) -> bool:
     is_allowed = (board[next_position] == ' '

@@ -1,4 +1,6 @@
-PIECE_VALUE = {
+from typing import Final
+
+PIECE_VALUE: Final[dict[str, int]] = {
     'k': 100,
     'q': 9,
     'r': 5,
