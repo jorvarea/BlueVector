@@ -1,15 +1,6 @@
-from typing import Final
+from config import PIECE_VALUE
 
-PIECE_VALUE: Final[dict[str, int]] = {
-    'k': 100,
-    'q': 9,
-    'r': 5,
-    'b': 3,
-    'n': 3,
-    'p': 1
-}
-
-def evaluation_function(board: list[str]) -> int:
+def evaluation_function(board: list[str], depth: int) -> int:
     evaluation = 0
     for piece in board:
         if piece != ' ':
@@ -17,4 +8,8 @@ def evaluation_function(board: list[str]) -> int:
                 evaluation += PIECE_VALUE[piece.lower()]
             else:
                 evaluation -= PIECE_VALUE[piece.lower()]
+    if 'K' not in board:
+        evaluation += depth
+    if 'k' not in board:
+        evaluation -= depth
     return evaluation
